@@ -102,4 +102,13 @@ mod tests {
             Err(String::from("Somehow, two plus two does not equal four"))
         }
     }
+
+    // The `#[ignore]` attribute can be used to exclude certain tests from
+    // runs of `cargo test`. Ignored test functions can be run by using
+    // the command `cargo test -- --ignored`
+    #[test]
+    #[ignore]
+    fn expensive_test() {
+        // code that takes a really really long time to run
+    }
 }
