@@ -85,11 +85,21 @@ mod tests {
     }
 
     // The `#[should_panic]` attribute makes it such that the test will
-    // pass if the code inside the test function panics. Otherwise the
+    // pass if the code inside the test function panics. Otherwise, the
     // test will fail
     #[test]
     #[should_panic]
     fn greater_than_100() {
         Guess::new(200);
+    }
+
+    // Tests can also be written that use `Result<T, E>`
+    #[test]
+    fn it_works() -> Result<(), String> {
+        if 2 + 2 == 4 {
+            Ok(())
+        } else {
+            Err(String::from("Somehow, two plus two does not equal four"))
+        }
     }
 }
